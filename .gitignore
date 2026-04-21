@@ -1,0 +1,16 @@
+node_modules/
+dist/
+*.log
+*.tsbuildinfo
+.DS_Store
+.vscode/
+.idea/
+.claude/
+data/
+coverage/
+
+# Stray artifacts
+*.zip
+*.tmp
+*.tmp.*
+Old/

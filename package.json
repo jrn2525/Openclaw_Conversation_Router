@@ -1,0 +1,65 @@
+{
+  "name": "openclaw-conversation-router",
+  "version": "1.0.0",
+  "description": "Native OpenClaw plugin — stateful inbound conversational workflow router and engine. Intercepts trigger phrases, runs multi-turn dialogs, persists state across messages, and emits structured payloads for downstream handlers.",
+  "license": "MIT",
+  "author": "Jamen Enterprises",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json",
+    "./openclaw.plugin.json": "./openclaw.plugin.json"
+  },
+  "files": [
+    "dist/",
+    "openclaw.plugin.json",
+    "schema/",
+    "workflows/",
+    "example.config.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "openclaw": {
+    "extensions": ["./dist/index.js"]
+  },
+  "scripts": {
+    "build": "node ./node_modules/typescript/bin/tsc -p tsconfig.json",
+    "clean": "node -e \"import('node:fs').then(fs=>fs.rmSync('dist',{recursive:true,force:true}))\"",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "test": "node --test --test-reporter=spec \"test/**/*.test.js\"",
+    "lint": "node ./node_modules/typescript/bin/tsc --noEmit -p tsconfig.json"
+  },
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "plugin",
+    "conversational",
+    "workflow",
+    "router",
+    "telegram",
+    "webchat",
+    "state-machine",
+    "dialog"
+  ],
+  "peerDependencies": {
+    "openclaw": ">=0.1.0"
+  },
+  "peerDependenciesMeta": {
+    "openclaw": { "optional": true }
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "openclaw": "file:./test/stubs/openclaw",
+    "typescript": "^5.4.0"
+  }
+}

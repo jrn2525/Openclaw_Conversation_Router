@@ -1,0 +1,47 @@
+{
+  "name": "openclaw-plugin-router",
+  "version": "1.0.0",
+  "description": "Native OpenClaw plugin — stateful inbound conversational workflow router and engine. Intercepts trigger phrases, runs multi-turn dialogs, persists state across messages, and emits structured payloads for downstream handlers.",
+  "license": "MIT",
+  "author": "Jamen Enterprises",
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "openclaw.plugin.json",
+    "schema/",
+    "workflows/",
+    "example.config.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf dist",
+    "prepare": "npm run build",
+    "test": "node --test test/*.test.js",
+    "pretest": "npm run build",
+    "lint": "tsc --noEmit -p tsconfig.json"
+  },
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "plugin",
+    "conversational",
+    "workflow",
+    "router",
+    "telegram",
+    "webchat",
+    "state-machine",
+    "dialog"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {}
+}
